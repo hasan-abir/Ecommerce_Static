@@ -8,6 +8,7 @@
 :root {
   --primary: #0b2547;
   --secondary: #dbedff;
+  --secondary-dark: #bedaf6;
   --tertiary: #ffffff;
   --danger: #f18888;
 }
@@ -27,25 +28,29 @@ p {
 }
 a {
   text-decoration: none;
-  cursor: pointer;
+}
+a,
+button {
+  font-size: 1rem;
+  display: inline-block;
 }
 button {
   cursor: pointer;
-  font-size: 1rem;
-  display: block;
   border: 0;
-  &:focus {
-    outline: none;
-  }
+}
+button:focus-visible {
+  outline: none;
 }
 input,
 textarea,
 select {
   font-size: 1rem;
   display: block;
-  &:focus {
-    outline: none;
-  }
+}
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
 }
 textarea {
   resize: none;
@@ -56,6 +61,20 @@ img {
 }
 
 .container {
-  width: 80%;
+  max-width: 1366px;
   margin: 0 auto;
+}
+
+.primary-btn {
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+  border-radius: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  background-color: var(--secondary);
+}
+
+.primary-btn:hover,
+.primary-btn:active {
+  background-color: var(--secondary-dark);
 }

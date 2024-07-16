@@ -1,3 +1,9 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "prettier"],
+  "rules": {
+    "no-unused-vars": 2,
+    "no-console": 2,
+    "eqeqeq": 2,
+    "max-len": [2, { "code": 80 }]
+  }
 }

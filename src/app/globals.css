@@ -78,3 +78,10 @@ img {
 .primary-btn:active {
   background-color: var(--secondary-dark);
 }
+
+.icon {
+  width: 4rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+}

@@ -4,16 +4,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--primary);
 }
 
-.title {
+.wrapper h1 {
   text-transform: uppercase;
   font-size: 4rem;
   margin-bottom: 0.5rem;
 }
 
-.lead {
+.wrapper p {
   font-size: 1.5rem;
   margin-bottom: 2rem;
 }

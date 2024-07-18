@@ -1,9 +1,14 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import styles from './Navbar.module.css';
 import CartIcon from './CartIcon';
+import { useCart } from '../context/CartContext';
 
 export default function Navbar() {
+  const cart = useCart();
+
   return (
     <nav className={styles.navbar}>
       <div className={'container ' + styles.wrapper}>
@@ -16,7 +21,9 @@ export default function Navbar() {
           <Link href="/store">store</Link>
           <Link href="/cart" className="icon">
             <CartIcon />
-            <span className={styles.bubble}>2</span>
+            {cart.items.length > 0 ? (
+              <span className={styles.bubble}>{cart.items.length}</span>
+            ) : null}
           </Link>
         </div>
       </div>

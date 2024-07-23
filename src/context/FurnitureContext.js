@@ -30,10 +30,18 @@ const initialFurniture = {
   items: [],
 };
 
-function furnitureReducer(furniture, { type }) {
+function furnitureReducer(furniture, { type, action }) {
   switch (type) {
     case 'fetch':
-      return { ...furniture, items: demoData.data };
+      let items = [];
+      if (action.category === 'all') {
+        items = demoData.data;
+      } else {
+        items = demoData.data.filter(
+          (item) => item.category === action.category
+        );
+      }
+      return { ...furniture, items };
     default:
       return furniture;
   }

@@ -1,6 +1,16 @@
 .wrapper {
   box-shadow: -3px 3px 15px 0px rgba(0, 0, 0, 0.15);
+}
+.picture,
+.text {
   padding: 1.5rem;
+}
+
+.picture {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: var(--secondary);
 }
 
 .text {

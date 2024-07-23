@@ -12,6 +12,7 @@ export default function FurnitureList() {
   useEffect(() => {
     dispatch({
       type: 'fetch',
+      action: { category: 'all' },
     });
   }, [dispatch]);
 

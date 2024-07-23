@@ -1,8 +1,9 @@
-import { Inter } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 import './globals.css';
 import Navbar from '../components/Navbar';
 import { CartProvider } from '../context/CartContext';
-const inter = Inter({ subsets: ['latin'] });
+import { FurnitureProvider } from '@/context/FurnitureContext';
+const roboto = Roboto({ weight: ['400', '500', '700'], subsets: ['latin'] });
 
 export const metadata = {
   title: 'Wood Shine',
@@ -12,11 +13,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <CartProvider>
-          <Navbar />
-          <div className="container">{children}</div>
-        </CartProvider>
+      <body className={roboto.className}>
+        <FurnitureProvider>
+          <CartProvider>
+            <Navbar />
+            <div className="container">{children}</div>
+          </CartProvider>
+        </FurnitureProvider>
       </body>
     </html>
   );

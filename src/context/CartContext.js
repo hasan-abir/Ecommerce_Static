@@ -29,4 +29,16 @@ const initialCart = {
   items: [],
 };
 
-function cartReducer() {}
+function cartReducer(cart, { type, action }) {
+  switch (type) {
+    case 'add-item':
+      return { ...cart, items: [action.id, ...cart.items] };
+    case 'remove-item':
+      return {
+        ...cart,
+        items: [...cart.items].filter((item) => item !== action.id),
+      };
+    default:
+      return cart;
+  }
+}

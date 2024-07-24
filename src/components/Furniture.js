@@ -2,21 +2,45 @@
 import Link from 'next/link';
 import styles from './Furniture.module.css';
 import Image from 'next/image';
+import { useCart, useCartDispatch } from '../context/CartContext';
 
 export default function Furniture({ furniture }) {
+  const dispatch = useCartDispatch();
+  const cart = useCart();
+
+  const onAddOrRemoveCartItem = () => {
+    if (cart.items.includes(furniture.id)) {
+      dispatch({
+        type: 'remove-item',
+        action: { id: furniture.id },
+      });
+    } else {
+      dispatch({
+        type: 'add-item',
+        action: { id: furniture.id },
+      });
+    }
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.picture}>
-        <Link href={'/detail/' + furniture.id}>
-          <Image
-            src={'/' + furniture.img}
-            alt={furniture.title}
-            width={300}
-            height={0}
-            priority={true}
-            style={{ width: 'auto', height: '110px' }}
-          />
-        </Link>
+        <Image
+          src={'/' + furniture.img}
+          alt={furniture.title}
+          width={300}
+          height={0}
+          priority={true}
+          style={{ width: 'auto', height: '110px' }}
+        />
+        <Link href={'/detail/' + furniture.id}></Link>
+        <button onClick={onAddOrRemoveCartItem}>
+          {cart.items.includes(furniture.id) ? (
+            <span>Remove from Cart</span>
+          ) : (
+            <span>Add to Cart</span>
+          )}
+        </button>
       </div>
       <div className={styles.text}>
         <h2>

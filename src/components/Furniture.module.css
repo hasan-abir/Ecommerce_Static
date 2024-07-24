@@ -7,10 +7,48 @@
 }
 
 .picture {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
   background: var(--secondary);
+}
+
+.picture > a {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.15);
+  transition: opacity 0.3s;
+}
+
+.picture:hover > a,
+.picture:hover > button {
+  opacity: 1;
+}
+
+.picture:hover > button {
+  transform: translate(-50%, -50%);
+}
+
+.picture button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  background: var(--secondary);
+  border: 1px solid var(--primary);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
 }
 
 .text {

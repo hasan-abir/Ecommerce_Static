@@ -26,17 +26,47 @@ export function useCartDispatch() {
 }
 
 const initialCart = {
-  items: [],
+  items: [
+    { id: '1', quantity: 1 },
+    { id: '2', quantity: 1 },
+  ],
 };
 
 function cartReducer(cart, { type, action }) {
   switch (type) {
     case 'add-item':
-      return { ...cart, items: [action.id, ...cart.items] };
+      const quantity = action.quantity ? action.quantity : 1;
+
+      return {
+        ...cart,
+        items: [{ id: action.id, quantity }, ...cart.items],
+      };
     case 'remove-item':
       return {
         ...cart,
-        items: [...cart.items].filter((item) => item !== action.id),
+        items: [...cart.items].filter((item) => item.id !== action.id),
+      };
+    case 'increment-quantity':
+      return {
+        ...cart,
+        items: cart.items.map((item) => {
+          if (item.id === action.id && item.quantity < action.maxQuantity) {
+            return { ...item, quantity: item.quantity + 1 };
+          } else {
+            return item;
+          }
+        }),
+      };
+    case 'decrement-quantity':
+      return {
+        ...cart,
+        items: cart.items.map((item) => {
+          if (item.id === action.id && item.quantity > 1) {
+            return { ...item, quantity: item.quantity - 1 };
+          } else {
+            return item;
+          }
+        }),
       };
     default:
       return cart;

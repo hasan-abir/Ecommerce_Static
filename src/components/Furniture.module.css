@@ -11,7 +11,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  background: var(--secondary);
+  background-color: var(--secondary);
 }
 
 .picture > a {
@@ -37,13 +37,15 @@
 }
 
 .picture button {
+  width: max-content;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -20%);
-  background: var(--secondary);
-  border: 1px solid var(--primary);
+  background-color: var(--primary);
+  color: var(--tertiary);
   padding: 0.5rem 1rem;
+  text-transform: uppercase;
   border-radius: 0.5rem;
   opacity: 0;
   transition:

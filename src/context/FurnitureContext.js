@@ -34,6 +34,7 @@ function furnitureReducer(furniture, { type, action }) {
   switch (type) {
     case 'fetch':
       let items = [];
+
       if (action.category === 'all') {
         items = demoData.data;
       } else {
@@ -41,6 +42,11 @@ function furnitureReducer(furniture, { type, action }) {
           (item) => item.category === action.category
         );
       }
+
+      if (action.ids) {
+        items = items.filter((item) => action.ids.includes(item.id));
+      }
+
       return { ...furniture, items };
     default:
       return furniture;

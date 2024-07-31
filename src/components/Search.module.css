@@ -17,5 +17,5 @@
 }
 
 .form button {
-  background: var(--secondary);
+  background-color: var(--secondary);
 }

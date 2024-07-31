@@ -1,0 +1,46 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.wrapper h3,
+.wrapper h4,
+.wrapper p {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.wrapper h3,
+.wrapper p {
+  text-align: center;
+}
+
+.quantity {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity > button {
+  background: none;
+}
+
+.remove {
+  font-size: 0.8rem;
+  background-color: var(--danger);
+  color: var(--tertiary);
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+}
+
+@media (max-width: 830px) {
+  .wrapper {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+}

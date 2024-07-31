@@ -8,8 +8,10 @@ export default function Furniture({ furniture }) {
   const dispatch = useCartDispatch();
   const cart = useCart();
 
+  const isInCart = cart.items.map((item) => item.id).includes(furniture.id);
+
   const onAddOrRemoveCartItem = () => {
-    if (cart.items.includes(furniture.id)) {
+    if (isInCart) {
       dispatch({
         type: 'remove-item',
         action: { id: furniture.id },
@@ -34,13 +36,13 @@ export default function Furniture({ furniture }) {
           style={{ width: 'auto', height: '110px' }}
         />
         <Link href={'/detail/' + furniture.id}></Link>
-        <button onClick={onAddOrRemoveCartItem}>
-          {cart.items.includes(furniture.id) ? (
-            <span>Remove from Cart</span>
-          ) : (
-            <span>Add to Cart</span>
-          )}
-        </button>
+        {isInCart ? (
+          <button onClick={onAddOrRemoveCartItem} className={styles.remove}>
+            Remove from Cart
+          </button>
+        ) : (
+          <button onClick={onAddOrRemoveCartItem}>Add to Cart</button>
+        )}
       </div>
       <div className={styles.text}>
         <h2>

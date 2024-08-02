@@ -1,4 +1,4 @@
-import FurnitureList from '@/components/FurnitureList';
+import FurnitureList from '../../components/FurnitureList';
 import Search from '../../components/Search';
 import styles from './page.module.css';
 

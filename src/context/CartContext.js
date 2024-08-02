@@ -26,10 +26,7 @@ export function useCartDispatch() {
 }
 
 const initialCart = {
-  items: [
-    { id: '1', quantity: 1 },
-    { id: '2', quantity: 1 },
-  ],
+  items: [],
 };
 
 function cartReducer(cart, { type, action }) {
@@ -45,6 +42,11 @@ function cartReducer(cart, { type, action }) {
       return {
         ...cart,
         items: [...cart.items].filter((item) => item.id !== action.id),
+      };
+    case 'clear-all':
+      return {
+        ...cart,
+        items: [],
       };
     case 'increment-quantity':
       return {

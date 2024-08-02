@@ -3,14 +3,17 @@ import Link from 'next/link';
 import styles from './Furniture.module.css';
 import Image from 'next/image';
 import { useCart, useCartDispatch } from '../context/CartContext';
+import { useCallback, useMemo } from 'react';
 
 export default function Furniture({ furniture }) {
   const dispatch = useCartDispatch();
   const cart = useCart();
 
-  const isInCart = cart.items.map((item) => item.id).includes(furniture.id);
+  const isInCart = useMemo(() => {
+    return cart.items.map((item) => item.id).includes(furniture.id);
+  }, [cart.items]);
 
-  const onAddOrRemoveCartItem = () => {
+  const onAddOrRemoveCartItem = useCallback(() => {
     if (isInCart) {
       dispatch({
         type: 'remove-item',
@@ -22,7 +25,7 @@ export default function Furniture({ furniture }) {
         action: { id: furniture.id },
       });
     }
-  };
+  }, [dispatch, isInCart]);
 
   return (
     <div className={styles.wrapper}>

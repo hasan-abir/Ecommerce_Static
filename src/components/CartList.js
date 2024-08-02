@@ -1,6 +1,6 @@
 'use client';
 
-import { useFurnitureDispatch } from '@/context/FurnitureContext';
+import { useFurnitureDispatch } from '../context/FurnitureContext';
 import { useEffect } from 'react';
 import { useCart } from '../context/CartContext';
 import CartItem from './CartItem';
@@ -28,9 +28,7 @@ export default function CartList() {
             );
           })}
         </>
-      ) : (
-        <p>There are no items</p>
-      )}
+      ) : null}
     </div>
   );
 }

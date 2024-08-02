@@ -1,6 +1,9 @@
 'use client';
 
-import { useFurniture, useFurnitureDispatch } from '@/context/FurnitureContext';
+import {
+  useFurniture,
+  useFurnitureDispatch,
+} from '../context/FurnitureContext';
 import { useEffect } from 'react';
 import Furniture from './Furniture';
 import styles from './FurnitureList.module.css';

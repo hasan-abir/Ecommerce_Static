@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import styles from './Search.module.css';
 import { useFurnitureDispatch } from '../context/FurnitureContext';
 
@@ -8,11 +8,14 @@ export default function Search() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const dispatch = useFurnitureDispatch();
 
-  const onSubmitForm = (e) => {
-    e.preventDefault();
+  const onSubmitForm = useCallback(
+    (e) => {
+      e.preventDefault();
 
-    dispatch({ type: 'fetch', action: { category: selectedCategory } });
-  };
+      dispatch({ type: 'fetch', action: { category: selectedCategory } });
+    },
+    [dispatch, selectedCategory]
+  );
 
   return (
     <form onSubmit={onSubmitForm} className={styles.form}>

@@ -17,7 +17,7 @@ export default function CartList() {
         ids: cart.items.map((item) => item.id),
       },
     });
-  }, [dispatch]);
+  }, [dispatch, cart.items]);
   return (
     <div>
       {cart.items.length > 0 ? (

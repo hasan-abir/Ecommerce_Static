@@ -38,7 +38,7 @@ export default function CartTotal() {
     dispatch({
       type: 'clear-all',
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={styles.wrapper}>

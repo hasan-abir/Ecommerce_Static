@@ -33,7 +33,6 @@ function cartReducer(cart, { type, action }) {
   switch (type) {
     case 'add-item':
       const quantity = action.quantity ? action.quantity : 1;
-
       return {
         ...cart,
         items: [{ id: action.id, quantity }, ...cart.items],

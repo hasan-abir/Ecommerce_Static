@@ -11,7 +11,7 @@ export default function Furniture({ furniture }) {
 
   const isInCart = useMemo(() => {
     return cart.items.map((item) => item.id).includes(furniture.id);
-  }, [cart.items]);
+  }, [cart.items, furniture.id]);
 
   const onAddOrRemoveCartItem = useCallback(() => {
     if (isInCart) {
@@ -25,7 +25,7 @@ export default function Furniture({ furniture }) {
         action: { id: furniture.id },
       });
     }
-  }, [dispatch, isInCart]);
+  }, [dispatch, isInCart, furniture.id]);
 
   return (
     <div className={styles.wrapper}>

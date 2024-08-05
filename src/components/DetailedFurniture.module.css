@@ -1,0 +1,49 @@
+.wrapper > h1 {
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+}
+
+.row {
+  display: flex;
+  gap: 2rem;
+}
+
+.row > * {
+  flex: 1;
+}
+
+.row aside {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.row section h2 {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+.row section h2:first-child {
+  margin-top: 0;
+}
+
+.price {
+  font-size: 1.5rem;
+}
+
+.quantity {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.quantity > button {
+  background: none;
+}
+
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+}

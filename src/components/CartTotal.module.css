@@ -2,6 +2,10 @@
   margin-top: 3rem;
 }
 
+.wrapper > p {
+  text-align: center;
+}
+
 .row {
   display: flex;
   align-items: center;

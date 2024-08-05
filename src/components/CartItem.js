@@ -7,6 +7,7 @@ import styles from './CartItem.module.css';
 import ChevronRightIcon from './ChevronRightIcon';
 import ChevronLeftIcon from './ChevronLeftIcon';
 import { useCallback, useMemo } from 'react';
+import Link from 'next/link';
 
 export default function CartItem({ id, quantity }) {
   const furniture = useFurniture();
@@ -14,7 +15,7 @@ export default function CartItem({ id, quantity }) {
 
   const item = useMemo(() => {
     return furniture.items.find((item) => item.id === id);
-  }, [furniture.items]);
+  }, [furniture.items, id]);
 
   const decrementQuantity = useCallback(() => {
     dispatch({
@@ -23,7 +24,7 @@ export default function CartItem({ id, quantity }) {
         id,
       },
     });
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   const incrementQuantity = useCallback(() => {
     dispatch({
@@ -33,7 +34,7 @@ export default function CartItem({ id, quantity }) {
         id,
       },
     });
-  }, [dispatch, item]);
+  }, [dispatch, item, id]);
 
   const removeItemFromCart = useCallback(() => {
     dispatch({
@@ -42,20 +43,22 @@ export default function CartItem({ id, quantity }) {
         id,
       },
     });
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   return (
     <div className={styles.wrapper}>
       {item ? (
         <>
-          <Image
-            src={'/' + item.img}
-            alt={item.title}
-            width={50}
-            height={50}
-            priority={true}
-            style={{ width: 'auto', height: 'auto' }}
-          />
+          <Link href={'/detail/' + item.id}>
+            <Image
+              src={'/' + item.img}
+              alt={item.title}
+              width={50}
+              height={50}
+              priority={true}
+              style={{ width: 'auto', height: 'auto' }}
+            />
+          </Link>
           <h4>{item.title}</h4>
           <h3>
             <strong>${item.price}</strong>

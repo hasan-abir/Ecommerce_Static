@@ -38,7 +38,7 @@ export default function Furniture({ furniture }) {
           priority={true}
           style={{ width: 'auto', height: '110px' }}
         />
-        <Link href={'/detail/' + furniture.id}></Link>
+        <Link href={'/furniture/' + furniture.id}></Link>
         {isInCart ? (
           <button onClick={onAddOrRemoveCartItem} className={styles.remove}>
             Remove from Cart

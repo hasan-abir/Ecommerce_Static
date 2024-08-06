@@ -49,7 +49,7 @@ export default function CartItem({ id, quantity }) {
     <div className={styles.wrapper}>
       {item ? (
         <>
-          <Link href={'/detail/' + item.id}>
+          <Link href={'/furniture/' + item.id}>
             <Image
               src={'/' + item.img}
               alt={item.title}

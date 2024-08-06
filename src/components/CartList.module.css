@@ -1,0 +1,18 @@
+.row {
+  display: flex;
+}
+
+.row > * {
+  flex: 1;
+}
+
+.row p {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@media (max-width: 830px) {
+  .row {
+    display: none;
+  }
+}

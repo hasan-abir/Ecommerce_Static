@@ -32,21 +32,16 @@
   opacity: 1;
 }
 
-.picture:hover > button {
-  transform: translate(-50%, -50%);
-}
-
 .picture button {
   width: max-content;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -20%);
+  bottom: 0;
+  right: 0;
   background-color: var(--primary);
   color: var(--tertiary);
   padding: 0.5rem 1rem;
   text-transform: uppercase;
-  border-radius: 0.5rem;
+  border-radius: 0.5rem 0 0 0;
   opacity: 0;
   transition:
     opacity 0.2s,

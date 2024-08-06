@@ -4,7 +4,7 @@ import fs from 'fs';
 import { notFound } from 'next/navigation';
 import DetailedFurniture from '../../../components/DetailedFurniture';
 
-export default async function FurnitureDetails({ params: { id } }) {
+export default async function SingleFurniture({ params: { id } }) {
   const furniture = await getData(id);
   return (
     <main className={styles.wrapper}>

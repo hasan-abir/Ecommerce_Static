@@ -63,7 +63,6 @@ export default function CartItem({ id, quantity }) {
           <h3>
             <strong>${item.price}</strong>
           </h3>
-          <p>x</p>
           <div className={styles.quantity}>
             <button onClick={decrementQuantity}>
               <ChevronLeftIcon />
@@ -73,10 +72,12 @@ export default function CartItem({ id, quantity }) {
               <ChevronRightIcon />
             </button>
           </div>
+          <div>
+            <button onClick={removeItemFromCart} className={styles.remove}>
+              Remove
+            </button>
+          </div>
           <h3>${quantity * item.price}</h3>
-          <button onClick={removeItemFromCart} className={styles.remove}>
-            Remove
-          </button>
         </>
       ) : null}
     </div>
